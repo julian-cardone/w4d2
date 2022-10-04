@@ -11,4 +11,5 @@ class Rook
     end
 
     def grow_unblocked_moves_in_dir
+    end
 end
