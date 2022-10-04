@@ -1,14 +1,13 @@
 class Piece
 
-    # def initialize(color, board, pos)
-    #     @color = color
-    #     @board = board
-    #     @pos = pos
-    # end
-
-    def initialize
-
+    def initialize(color, board, pos)
+        @color = color
+        @board = board
+        @pos = pos
     end
+
+    # def initialize
+    # end
 
     def move
 
@@ -23,7 +22,7 @@ class Piece
     end
 
     def valid_moves?
-
+        
     end
 
     def pos=(val)

@@ -5,11 +5,29 @@ class Rook
         super
     end
 
-    private
-    def move_dirs(direction)
-        self.horizontal_dirs(direction)
+    def valid_moves
+        result = []
+
+        move_dirs.each do |dir|
+            dx, dy = dir
+            grow_unblocked_moves_in_dir(dx, dy)
+        end
+
+        result
     end
 
-    def grow_unblocked_moves_in_dir
+    private
+    def move_dirs
+        self.horizontal_dirs
+    end
+
+    def grow_unblocked_moves_in_dir(dx, dy)
+        result = []
+        next_pos = [@pos[0] + dx, @pos[1] + dy]
+        while @board.valid_pos?(next_pos)
+            result << next_pos
+            next_pos = [@pos[0] + dx, @pos[1] + dy]
+        end
+        result
     end
 end
