@@ -1,16 +1,14 @@
 require_relative "slideable.rb"
 
-class Queen
-    def initialize(symbol)
+class Queen < Piece
+    include Slideable
+    
+    def initialize(symbol, board, pos)
         super
     end
 
     private
-    def move_dirs(direction)
-        if direction < 4
-            return self.horizontal_dirs(direction)
-        else
-            return self.diagonal_dirs(direction-4)
-        end
+    def move_dirs
+        return self.horizontal_dirs + self.diagonal_dirs
     end
 end

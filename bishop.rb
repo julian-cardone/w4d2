@@ -1,12 +1,14 @@
 require_relative "slideable.rb"
 
-class Bishop
-    def initialize(symbol)
+class Bishop < Piece
+    include Slideable
+
+    def initialize(symbol, board, pos)
         super
     end
 
     private
-    def move_dirs(direction)
-        self.diagonal_dirs(direction)
+    def move_dirs
+        self.diagonal_dirs
     end
 end
